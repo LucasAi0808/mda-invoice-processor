@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-const WEBHOOK_URL = 'https://lucasr08.app.n8n.cloud/webhook/pdf-to-excel'
+const WEBHOOK_URL = 'https://lucas0808.app.n8n.cloud/webhook/pdf-to-excel'
 
 export async function POST(request: NextRequest) {
   try {

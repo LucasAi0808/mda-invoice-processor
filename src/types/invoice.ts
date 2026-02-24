@@ -24,6 +24,14 @@ export interface ProcessingError {
 
 export type ApiResponse = ProcessingSuccess | ProcessingError;
 
+// Batch result for multiple files
+export interface BatchResult {
+  total: number;
+  succeeded: number;
+  failed: number;
+  results: { fileName: string; response: ApiResponse }[];
+}
+
 export type ProcessingStatus = 'idle' | 'ready' | 'processing' | 'success' | 'error';
 
 export interface FileWithPreview extends File {

@@ -11,8 +11,7 @@ export default function Home() {
   const {
     status,
     files,
-    result,
-    error,
+    batchResult,
     statusMessage,
     setFiles,
     process,
@@ -24,7 +23,6 @@ export default function Home() {
       <Header />
 
       <div className="flex-1 flex flex-col justify-center py-8 sm:py-12">
-        {/* Idle or Ready state - show upload zone */}
         {(status === 'idle' || status === 'ready') && (
           <UploadZone
             files={files}
@@ -34,30 +32,26 @@ export default function Home() {
           />
         )}
 
-        {/* Processing state */}
         {status === 'processing' && (
           <ProcessingState message={statusMessage} />
         )}
 
-        {/* Success state */}
-        {status === 'success' && result && (
+        {status === 'success' && batchResult && (
           <SuccessResult
-            sheetUrl={result.sheetUrl}
+            batchResult={batchResult}
             onReset={reset}
           />
         )}
 
-        {/* Error state */}
-        {status === 'error' && error && (
+        {status === 'error' && (
           <ErrorResult
-            error={error.error}
-            code={error.code}
+            error={statusMessage}
+            code="PROCESSING_ERROR"
             onRetry={reset}
           />
         )}
       </div>
 
-      {/* Footer */}
       <footer className="py-6 text-center">
         <p className="text-[11px] text-neutral-400">
           Powered by n8n automation

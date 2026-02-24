@@ -18,7 +18,7 @@ export interface ProcessingSuccess {
 export interface ProcessingError {
   success: false;
   error: string;
-  code?: 'INVALID_FILE' | 'DUPLICATE' | 'PARSING_FAILED';
+  code?: 'INVALID_FILE' | 'DUPLICATE' | 'PARSING_FAILED' | 'PROCESSING_ERROR';
   data?: InvoiceData;
 }
 
